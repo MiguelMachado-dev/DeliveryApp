@@ -8,11 +8,12 @@ class TipoProdutoSchema extends Schema {
     this.create('tipo_produtos', table => {
       table.increments()
       table
-        .integer('produtos_id')
+        .integer('produto_id')
         .references('id')
         .inTable('produtos')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
+        .unsigned()
         .notNullable()
       table.string('descricao', 80).notNullable()
       table.timestamps()

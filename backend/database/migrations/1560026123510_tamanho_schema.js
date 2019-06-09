@@ -7,7 +7,16 @@ class TamanhoSchema extends Schema {
   up () {
     this.create('tamanhos', table => {
       table.increments()
-      table.string('username', 80).notNullable()
+      table.string('description', 80).notNullable()
+      table.integer('value').notNullable()
+      table
+        .integer('produto_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('produtos')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
       table.timestamps()
     })
   }
