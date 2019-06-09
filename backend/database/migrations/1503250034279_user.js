@@ -13,10 +13,7 @@ class UserSchema extends Schema {
         .notNullable()
         .unique()
       table.string('password', 60).notNullable()
-      table
-        .boolean('user_type')
-        .notNullable()
-        .defaultTo(false)
+      table.boolean('user_type').defaultTo(false)
       table.timestamps()
     })
   }
